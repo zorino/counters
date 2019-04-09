@@ -86,6 +86,11 @@ func (c *CounterBox) CreateHttpHandler() http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) { c.WriteTo(w) }
 }
 
+// Get the counters map
+func (c *CounterBox) GetCountersMap() *sync.Map {
+	return c.counters
+}
+
 func (c *CounterBox) Get(name string) Counter {
 	return c.GetCounter(name)
 }
